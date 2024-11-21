@@ -5,7 +5,7 @@ const FeaturesSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto text-center">
         <h2 className="text-gray-700 text-3xl font-bold mb-8">
-          Features You'll Love
+          Features You&apos;ll Love
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <FeatureCard

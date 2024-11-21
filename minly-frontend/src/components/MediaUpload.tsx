@@ -1,18 +1,17 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import Modal from './Modal';
 import axios from 'axios';
 
-interface MediaUploadProps {}
-
-const MediaUpload: React.FC<MediaUploadProps> = () => {
+const MediaUpload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [title, setTitle] = useState<string>('');
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [token, setToken] = useState<string | null>(null);
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-  const token = localStorage.getItem('jwtToken');
+  // let token: string | null = '';
 
   // Handle file change
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -50,7 +49,7 @@ const MediaUpload: React.FC<MediaUploadProps> = () => {
           'Content-Type': 'multipart/form-data',
         },
       })
-      .then((response) => {
+      .then(() => {
         setSuccessMessage('Media uploaded successfully!');
         setTitle('');
         setFile(null);
@@ -63,6 +62,13 @@ const MediaUpload: React.FC<MediaUploadProps> = () => {
         setFile(null);
       });
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setToken(localStorage.getItem('jwtToken'));
+      // token = localStorage.getItem('jwtToken');
+    }
+  }, []);
 
   return (
     <>

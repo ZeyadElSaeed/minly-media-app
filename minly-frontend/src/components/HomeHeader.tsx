@@ -17,7 +17,6 @@ const HomeHeader = () => {
   return (
     <header className="bg-blue-600 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo or App Name */}
         <div
           className="text-2xl font-bold cursor-pointer"
           onClick={() => handleNavigate('/')}
@@ -25,7 +24,6 @@ const HomeHeader = () => {
           ContentHub
         </div>
 
-        {/* Navigation Links */}
         <nav className="space-x-6">
           <button
             onClick={() => handleNavigate('/')}

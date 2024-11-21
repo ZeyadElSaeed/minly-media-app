@@ -18,9 +18,10 @@ const LoginPage = () => {
     axios
       .post(`${baseUrl}/auth/login`, { email, password })
       .then((response) => {
-        console.log(response.data.accessToken);
-        localStorage.setItem('jwtToken', response.data.accessToken);
-        router.push('/home');
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('jwtToken', response.data.accessToken);
+          router.push('/home');
+        }
       })
       .catch((error) =>
         setError('Invalid credentials! ' + error.response.data?.message),
@@ -58,7 +59,7 @@ const LoginPage = () => {
         </button>
       </form>
       <p className="text-gray-500 mt-4 text-center">
-        Don't have an account?{' '}
+        Don&apos;t have an account?{' '}
         <a href="/signup" className="text-blue-500">
           Register here
         </a>
