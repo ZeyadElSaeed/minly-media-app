@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "4000:3000"
+    environment:
+      - DB_HOST=db                    
+      - DB_PORT=5432                  
+      - DB_USERNAME=user              
+      - DB_PASSWORD=password          
+      - DB_NAME=postgres      
+    depends_on:
+      - db
+    volumes:
+      - app-data:/app/dist/uploads              
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"                 
+    environment:
+      POSTGRES_USER: user             
+      POSTGRES_PASSWORD: password     
+      POSTGRES_DB: postgres  
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data  
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    ports:
+      - "8888:80"                
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: pass
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+  app-data:
