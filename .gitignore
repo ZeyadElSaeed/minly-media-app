@@ -1,0 +1,68 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Next.js build outputs
+.next/
+out/
+
+# NestJS build outputs
+dist/
+
+# TypeScript
+*.tsbuildinfo
+*.d.ts
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# IDE or editor specific files
+.vscode/
+.idea/
+
+# Dependency directories
+.pnp/
+.pnp.js
+
+# Yarn 2
+.yarn/
+.yarn-integrity
+
+# Next.js static export output
+*.next/
+out/
+
+# NPM / Yarn package lock files (optional)
+package-lock.json
+yarn.lock
+
+# Temporary build files
+*.tmp
+*.swp
+
+# Test reports
+*.lcov-report/
+test-report/
+
+# JetBrains specific project files
+.idea/
+
+# Optional build artifacts
+dist/
