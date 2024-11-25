@@ -1,0 +1,33 @@
+export type Media = {
+  id: number;
+  type: MediaType;
+  title: string;
+  url: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user: User;
+  likes: Like[];
+};
+
+export enum MediaType {
+  IMAGE = 'image',
+  VIDEO = 'video',
+}
+
+export type Like = {
+  id: number;
+  user: User;
+  media: Media;
+  createdAt: Date;
+};
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  createdAt: Date;
+  updatedAt: Date;
+  media: Media[];
+  likes: Like[];
+};
