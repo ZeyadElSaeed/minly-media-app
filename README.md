@@ -1,3 +1,4 @@
+# Minly - Media Sharing Platform
 This project is a full-stack media sharing platform where users can upload, view, like, and unlike images and videos. The platform consists of:
 
 - **Backend**: Built with NestJS and Node.js, providing CRUD operations and API endpoints.
